@@ -10,7 +10,7 @@ console.log(animales[1]);
 // modificar el dato de un arreglo
 animales[2] = 'conejo'
 // console.log(animales);
-console.log(animales.length);
+// console.log(animales.length);
 
 // agregar otro animal
 // push -> agrega un elemento al final del arreglo
@@ -32,10 +32,6 @@ animales.unshift('oso')
 // console.log(animales);
 
 // como recorrer un arreglo
-// for convencional
-for (let index = 0; index < animales.length; index++) {
-    console.log(animales[index]);
-}
 
 // primera forma
 function soyUnafuncion(params) {
@@ -52,6 +48,93 @@ const arrowFunction = (params) => {
     // lo que quieran
 }
 
+// for convencional
+for (let index = 0; index < animales.length; index++) {
+    // console.log(animales[index]);
+}
 
 // forEach -> recorrer los arreglos
-animales.forEach()
+animales.forEach((element) => {
+    // console.log(element);
+})
+
+// map -> crea una copia del arreglo modificado
+const animalesFuriosos = animales.map((animal) => {
+    return animal + ' estoy furioso'
+})
+
+// console.log(animales);
+// console.log(animalesFuriosos);
+
+// acceder a un elemento - buscar un elemento
+// indexOf -> me arroja el index del elemento que es igual
+// metodo busca la primera coincidencia
+animales.push('loro')
+animales.push('elefante')
+animales.push('paloma')
+console.log(animales);
+const indexElefante = animales.indexOf('elefante')
+// console.log(animales.indexOf('elefante'));
+// console.log(animales.lastIndexOf('elefante'));
+console.log('este es el animal que buscas ', animales[indexElefante]);
+
+// revisar si un arreglo incluye un elemento dado
+// includes -> boolen
+// true -> si el arreglo incluye el elemento
+// false -> si no lo incluye
+const validateIncludes = animales.includes('loro')
+// console.log(validateIncludes);
+
+// some -> valida si algun elemento cumple la condicion
+const apellido = 'gallego'
+
+console.log(animales.some((animal) => {
+    return animal.length > 9
+}));
+
+console.log(animales.some((animal) => animal.length > 5));
+
+// every -> todos los elementos cumplen la condicion
+const everyAnimal = animales.every(animales => animales.length >= 3)
+console.log(everyAnimal);
+
+// find -> busca el elemento en el arreglo
+const findAnimal = animales.find((animal) => {
+    return animal.length <= 3
+})
+console.log(findAnimal);
+
+// SORT -SORTED
+
+// FILTER -> crea un nuevo arreglo validando una condicion
+const animalesGrandes = animales.filter((animal) => {
+    return animal.length > 5
+})
+// console.log(animalesGrandes);
+const numerosFilter = [10, 50, 100, 20, 80, 15]
+const numeroGrandes = numerosFilter.filter(numero => numero >= 50)
+// console.log(numeroGrandes);
+
+// map + filter
+const numerosPorDosMayores = numerosFilter
+    .map((numero) => numero * 2)
+    .filter(numero => numero > 100);
+
+console.log(numerosPorDosMayores);
+
+// reduce -> retorna un unico elemento
+// parametros -> acumulador, elemento actual, index del elemento actual
+// acum = 0 - numeroActual = 10
+const sumaNumerosReduce = numerosFilter.reduce((acum, numeroActual, index) => {
+    return acum + numeroActual
+}, 0)
+
+console.log(sumaNumerosReduce);
+
+// unir 2 arreglos
+const vocales = ['a', 'e', 'i', 'o']
+const consonantes = ['c', 'p', 'm', 'k']
+// concat -> une 2 arreglos creando otro arreglo
+const letras = consonantes.concat(vocales)
+console.log(letras);
+
