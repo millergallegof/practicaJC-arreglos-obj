@@ -76,7 +76,7 @@ console.log(animales);
 const indexElefante = animales.indexOf('elefante')
 // console.log(animales.indexOf('elefante'));
 // console.log(animales.lastIndexOf('elefante'));
-console.log('este es el animal que buscas ', animales[indexElefante]);
+// console.log('este es el animal que buscas ', animales[indexElefante]);
 
 // revisar si un arreglo incluye un elemento dado
 // includes -> boolen
@@ -92,17 +92,17 @@ console.log(animales.some((animal) => {
     return animal.length > 9
 }));
 
-console.log(animales.some((animal) => animal.length > 5));
+// console.log(animales.some((animal) => animal.length > 5));
 
 // every -> todos los elementos cumplen la condicion
 const everyAnimal = animales.every(animales => animales.length >= 3)
-console.log(everyAnimal);
+// console.log(everyAnimal);
 
 // find -> busca el elemento en el arreglo
 const findAnimal = animales.find((animal) => {
     return animal.length <= 3
 })
-console.log(findAnimal);
+// console.log(findAnimal);
 
 // SORT -SORTED
 
@@ -120,7 +120,7 @@ const numerosPorDosMayores = numerosFilter
     .map((numero) => numero * 2)
     .filter(numero => numero > 100);
 
-console.log(numerosPorDosMayores);
+// console.log(numerosPorDosMayores);
 
 // reduce -> retorna un unico elemento
 // parametros -> acumulador, elemento actual, index del elemento actual
@@ -129,12 +129,51 @@ const sumaNumerosReduce = numerosFilter.reduce((acum, numeroActual, index) => {
     return acum + numeroActual
 }, 0)
 
-console.log(sumaNumerosReduce);
+// console.log(sumaNumerosReduce);
 
 // unir 2 arreglos
 const vocales = ['a', 'e', 'i', 'o']
 const consonantes = ['c', 'p', 'm', 'k']
 // concat -> une 2 arreglos creando otro arreglo
 const letras = consonantes.concat(vocales)
-console.log(letras);
+// console.log(letras);
 
+// OBJETOS
+const estudiante = {
+    nombre: {
+        primerNombre: 'Santiago',
+        apellido: 'Castaño'
+    },
+    edad: 16,
+    terminoLaPrimaria: true,
+    mascotas: ['perro', 'gato'],
+    hacerTarea: function () {
+        console.log("santiago esta haciendo la tarea");
+    }
+}
+
+// extraer el valor d eun atributo forma 1
+console.log(estudiante.mascotas[0]);
+console.log(estudiante['nombre'].primerNombre);
+
+// agregar atributo a un objeto
+estudiante.colorFavorito = 'Azul'
+// console.log(estudiante);
+
+delete estudiante.colorFavorito
+// console.log(estudiante);
+const nombre = 'miller'
+const apellidoProfesor = 'gallego'
+
+
+// const profesor = {
+//     nombre: nombre,
+//     apellidoProfesor: apellidoProfesor
+// }
+
+const profesor = {
+    nombre,
+    apellidoProfesor
+}
+
+console.log(profesor);
